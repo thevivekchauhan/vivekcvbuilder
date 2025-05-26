@@ -37,36 +37,40 @@ export type ColorTheme = "navy" | "blue" | "green" | "purple";
 export const ResumeBuilder = () => {
   const [resumeData, setResumeData] = useState<ResumeData>({
     personalInfo: {
-      fullName: "John Doe",
+      fullName: "Vivek Chauhan",
       title: "Software Developer",
-      email: "john.doe@email.com",
+      email: "thechauhanvivek@gmail.com",
       phone: "+1 (555) 123-4567",
       location: "New York, NY",
     },
-    summary: "Passionate software developer with 5+ years of experience in building scalable web applications. Skilled in React, TypeScript, and modern web technologies.",
+    summary:
+      "Passionate software developer with 5+ years of experience in building scalable web applications. Skilled in React, TypeScript, and modern web technologies.",
     skills: ["JavaScript", "React", "TypeScript", "Node.js", "Python", "SQL"],
     education: [
       {
         degree: "Bachelor of Computer Science",
         institution: "University of Technology",
         year: "2019",
-        description: "Graduated Magna Cum Laude with focus on software engineering and web development."
-      }
+        description:
+          "Graduated Magna Cum Laude with focus on software engineering and web development.",
+      },
     ],
     experience: [
       {
         position: "Senior Software Developer",
         company: "Tech Solutions Inc.",
         duration: "2021 - Present",
-        description: "Lead development of customer-facing web applications serving 10K+ users. Implemented CI/CD pipelines and mentored junior developers."
+        description:
+          "Lead development of customer-facing web applications serving 10K+ users. Implemented CI/CD pipelines and mentored junior developers.",
       },
       {
         position: "Frontend Developer",
         company: "Digital Agency",
         duration: "2019 - 2021",
-        description: "Developed responsive websites and web applications using React and modern JavaScript frameworks."
-      }
-    ]
+        description:
+          "Developed responsive websites and web applications using React and modern JavaScript frameworks.",
+      },
+    ],
   });
 
   const [currentTheme, setCurrentTheme] = useState<ColorTheme>("navy");
