@@ -39,7 +39,7 @@ export const ResumeBuilder = () => {
     personalInfo: {
       fullName: "Vivek Chauhan",
       title: "Software Developer",
-      email: "thechauhanvivek@gmail.com",
+      email: "thevivek@gmail.com",
       phone: "+1 (555) 123-4567",
       location: "New York, NY",
     },
