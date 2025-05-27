@@ -36,34 +36,38 @@ export const generatePDF = async (resumeData: ResumeData, theme: ColorTheme, inc
           <img src="${resumeData.personalInfo.photo}" alt="Profile" class="profile-photo" />
         ` : ''}
         
-        <div style="margin-bottom: 40px;">
+        <div class="section">
           <h3 class="section-title left-section-title">Contact</h3>
           <div class="contact-item">${resumeData.personalInfo.email}</div>
           <div class="contact-item">${resumeData.personalInfo.phone}</div>
           <div class="contact-item">${resumeData.personalInfo.location}</div>
         </div>
         
-        <div>
+        <div class="section">
           <h3 class="section-title left-section-title">Skills</h3>
-          ${resumeData.skills.map(skill => `<div class="skill-item">${skill}</div>`).join('')}
+          <div class="skills-list">
+            ${resumeData.skills.map((skill, index) => `
+              <span class="skill-item">${skill}${index < resumeData.skills.length - 1 ? ' •' : ''}</span>
+            `).join('')}
+          </div>
         </div>
       </div>
       
       <div class="right-column">
-        <div style="margin-bottom: 40px;">
+        <div class="header">
           <h1 class="name">${resumeData.personalInfo.fullName}</h1>
           <p class="title">${resumeData.personalInfo.title}</p>
         </div>
         
         ${resumeData.summary ? `
-          <div style="margin-bottom: 40px;">
+          <div class="section">
             <h2 class="section-title">Professional Summary</h2>
             <p class="summary">${resumeData.summary}</p>
           </div>
         ` : ''}
         
         ${resumeData.experience.length > 0 ? `
-          <div style="margin-bottom: 40px;">
+          <div class="section">
             <h2 class="section-title">Experience</h2>
             ${resumeData.experience.map(exp => `
               <div class="experience-item">
@@ -77,7 +81,7 @@ export const generatePDF = async (resumeData: ResumeData, theme: ColorTheme, inc
         ` : ''}
         
         ${resumeData.education.length > 0 ? `
-          <div>
+          <div class="section">
             <h2 class="section-title">Education</h2>
             ${resumeData.education.map(edu => `
               <div class="education-item">
@@ -100,129 +104,147 @@ export const generatePDF = async (resumeData: ResumeData, theme: ColorTheme, inc
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
     }
     
     body {
       font-family: 'Arial', sans-serif;
-      line-height: 1.6;
+      line-height: 1.4;
       color: #333;
       background: white;
     }
-      .resume-container {
+    
+    .resume-container {
       display: flex;
-      height: 267mm; /* Reduced height to ensure single page */
-      max-width: 210mm;
-      margin: 0 auto;
-      position: relative;
+      width: 210mm;
+      min-height: 296mm;
+      max-height: 296mm;
+      margin: 0;
+      background: white;
       overflow: hidden;
     }
     
     .left-column {
-      flex: 1;
+      width: 70mm;
       background-color: ${styles.primary};
       color: white;
-      padding: 15px 20px;
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 267mm;
-      width: 33.33%;
+      padding: 20px 15px;
     }
     
     .right-column {
-      flex: 2;
-      padding: 15px 20px;
+      width: 140mm;
+      padding: 20px;
       background: white;
-      margin-left: 33.33%;
-      height: 267mm;
-      overflow-y: hidden;
     }
-      .profile-photo {
-      width: 90px;
-      height: 90px;
+    
+    .section {
+      margin-bottom: 12px;
+    }
+    
+    .header {
+      margin-bottom: 12px;
+    }
+    
+    .profile-photo {
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid white;
-      margin: 0 auto 15px;
+      border: 2px solid white;
+      margin: 0 auto 12px;
       display: ${includePhoto && resumeData.personalInfo.photo ? 'block' : 'none'}
     }
     
     .section-title {
-      font-size: 15px;
+      font-size: 13px;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 15px;
+      margin-bottom: 8px;
       color: ${styles.accent};
     }
     
     .left-section-title {
       color: white;
-      border-bottom: 2px solid rgba(255,255,255,0.3);
-      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 3px;
+      margin-bottom: 8px;
     }
     
     .contact-item {
-      margin-bottom: 10px;
-      font-size: 13px;
+      margin-bottom: 4px;
+      font-size: 11px;
       opacity: 0.9;
     }
-      .skill-item {
-      padding: 8px 0;
-      margin-bottom: 8px;
-      font-size: 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+    
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      line-height: 1.2;
+    }
+    
+    .skill-item {
+      color: white;
+      font-size: 11px;
+      opacity: 0.9;
     }
     
     .name {
-      font-size: 36px;
+      font-size: 22px;
       font-weight: bold;
       color: ${styles.accent};
-      margin-bottom: 10px;
+      margin-bottom: 4px;
+      line-height: 1.2;
     }
     
     .title {
-      font-size: 18px;
+      font-size: 14px;
       color: #666;
-      margin-bottom: 30px;
+      margin-bottom: 12px;
     }
     
     .summary {
-      margin-bottom: 30px;
-      line-height: 1.7;
+      font-size: 11px;
+      line-height: 1.3;
       color: #555;
+      margin-bottom: 4px;
     }
-      .experience-item, .education-item {
-      margin-bottom: 15px;
+    
+    .experience-item, .education-item {
+      margin-bottom: 10px;
       border-left: 2px solid ${styles.primary};
-      padding-left: 15px;
+      padding-left: 8px;
+    }
+    
+    .experience-item:last-child, .education-item:last-child {
+      margin-bottom: 0;
     }
     
     .job-title, .degree {
-      font-size: 16px;
+      font-size: 13px;
       font-weight: bold;
       color: #333;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+      line-height: 1.2;
     }
     
     .company, .institution {
       font-weight: 600;
       color: ${styles.accent};
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+      font-size: 12px;
     }
     
     .duration, .year {
-      font-size: 13px;
+      font-size: 11px;
       color: #666;
-      margin-bottom: 6px;
+      margin-bottom: 3px;
     }
     
     .description {
       color: #555;
-      line-height: 1.4;
-      font-size: 13px;
+      line-height: 1.3;
+      font-size: 11px;
     }
   `;
 
@@ -231,30 +253,36 @@ export const generatePDF = async (resumeData: ResumeData, theme: ColorTheme, inc
 
   // Configure PDF options
   const opt = {
-    margin: 15,
+    margin: 0,
     filename: `${resumeData.personalInfo.fullName.replace(/\s+/g, '_')}_Resume.pdf`,
+    pagebreak: { mode: ['avoid-all'] },
     image: { type: 'jpeg', quality: 0.95 },
     html2canvas: { 
-      scale: 2,
+      scale: 1,
       useCORS: true,
       logging: false,
-      windowHeight: 1009,
-      height: 1009
+      width: 794, // A4 width in pixels at 96 DPI
+      height: 1123, // A4 height in pixels at 96 DPI
+      windowWidth: 794,
+      letterRendering: true
     },
     jsPDF: { 
       unit: 'mm', 
-      format: 'a4', 
+      format: 'a4',
       orientation: 'portrait',
-      compress: true
+      compress: true,
+      precision: 16
     }
   };
 
   try {
+    // Generate and download PDF
     await html2pdf().set(opt).from(element).save();
   } catch (error) {
     console.error('Error generating PDF:', error);
     alert('Error generating PDF. Please try again.');
   } finally {
+    // Clean up
     document.body.removeChild(element);
   }
 };
