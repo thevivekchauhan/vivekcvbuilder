@@ -1,4 +1,3 @@
-
 import { ColorTheme } from "./ResumeBuilder";
 import { Button } from "@/components/ui/button";
 
@@ -12,6 +11,17 @@ const themes = [
   { id: "blue", name: "Ocean Blue", colors: ["bg-blue-600", "bg-blue-50"] },
   { id: "green", name: "Forest Green", colors: ["bg-emerald-600", "bg-emerald-50"] },
   { id: "purple", name: "Royal Purple", colors: ["bg-purple-600", "bg-purple-50"] },
+  { id: "sunset", name: "Sunset Orange", colors: ["bg-orange-500", "bg-orange-50"] },
+  { id: "sky", name: "Sky Light", colors: ["bg-sky-500", "bg-sky-50"] },
+  { id: "teal", name: "Teal Dream", colors: ["bg-teal-600", "bg-teal-50"] },
+  { id: "amber", name: "Golden Amber", colors: ["bg-amber-500", "bg-amber-50"] },
+  { id: "cyan", name: "Crystal Cyan", colors: ["bg-cyan-600", "bg-cyan-50"] },
+  { id: "pink", name: "Soft Pink", colors: ["bg-pink-600", "bg-pink-50"] },
+  { id: "indigo", name: "Indigo Night", colors: ["bg-indigo-600", "bg-indigo-50"] },
+  { id: "stone", name: "Stone Gray", colors: ["bg-stone-600", "bg-stone-50"] },
+  { id: "fuchsia", name: "Fuchsia Flame", colors: ["bg-fuchsia-600", "bg-fuchsia-50"] },
+  { id: "yellow", name: "Sunbeam Yellow", colors: ["bg-yellow-400", "bg-yellow-50"] },
+  { id: "red", name: "Cherry Red", colors: ["bg-red-600", "bg-red-50"] }
 ];
 
 export const ThemeSelector = ({ currentTheme, onThemeChange }: ThemeSelectorProps) => {

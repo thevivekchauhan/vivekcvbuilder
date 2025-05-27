@@ -31,7 +31,26 @@ export interface ResumeData {
   }[];
 }
 
-export type ColorTheme = "navy" | "blue" | "green" | "purple";
+export type ColorTheme = 
+  | "navy" 
+  | "blue" 
+  | "green" 
+  | "purple"
+  | "sunset"
+  | "rose"
+  | "sky"
+  | "teal"
+  | "amber"
+  | "cyan"
+  | "lime"
+  | "pink"
+  | "indigo"
+  | "stone"
+  | "zinc"
+  | "fuchsia"
+  | "violet"
+  | "yellow"
+  | "red";
 
 export const ResumeBuilder = () => {
   const [resumeData, setResumeData] = useState<ResumeData>({

@@ -4,25 +4,100 @@ import html2pdf from 'html2pdf.js';
 export const generatePDF = async (resumeData: ResumeData, theme: ColorTheme, includePhoto: boolean = true) => {
   const themeStyles = {
     navy: {
-      primary: "#1e293b",
-      secondary: "#f1f5f9",
+      primary: "#1e293b", // slate-800
+      secondary: "#f8fafc", // slate-50
       accent: "#1e293b",
     },
     blue: {
-      primary: "#2563eb",
-      secondary: "#eff6ff",
+      primary: "#2563eb", // blue-600
+      secondary: "#eff6ff", // blue-50
       accent: "#2563eb",
     },
     green: {
-      primary: "#059669",
-      secondary: "#ecfdf5",
+      primary: "#059669", // emerald-600
+      secondary: "#ecfdf5", // emerald-50
       accent: "#059669",
     },
     purple: {
-      primary: "#7c3aed",
-      secondary: "#f3e8ff",
+      primary: "#9333ea", // purple-600
+      secondary: "#faf5ff", // purple-50
+      accent: "#9333ea",
+    },
+    sunset: {
+      primary: "#f97316", // orange-500
+      secondary: "#fff7ed", // orange-50
+      accent: "#f97316",
+    },
+    rose: {
+      primary: "#e11d48", // rose-600
+      secondary: "#fff1f2", // rose-50
+      accent: "#e11d48",
+    },
+    sky: {
+      primary: "#0284c7", // sky-500
+      secondary: "#f0f9ff", // sky-50
+      accent: "#0284c7",
+    },
+    teal: {
+      primary: "#0d9488", // teal-600
+      secondary: "#f0fdfa", // teal-50
+      accent: "#0d9488",
+    },
+    amber: {
+      primary: "#d97706", // amber-500
+      secondary: "#fffbeb", // amber-50
+      accent: "#d97706",
+    },
+    cyan: {
+      primary: "#0891b2", // cyan-600
+      secondary: "#ecfeff", // cyan-50
+      accent: "#0891b2",
+    },
+    lime: {
+      primary: "#84cc16", // lime-500
+      secondary: "#f7fee7", // lime-50
+      accent: "#84cc16",
+    },
+    pink: {
+      primary: "#db2777", // pink-600
+      secondary: "#fdf2f8", // pink-50
+      accent: "#db2777",
+    },
+    indigo: {
+      primary: "#4f46e5", // indigo-600
+      secondary: "#eef2ff", // indigo-50
+      accent: "#4f46e5",
+    },
+    stone: {
+      primary: "#57534e", // stone-600
+      secondary: "#fafaf9", // stone-50
+      accent: "#57534e",
+    },
+    zinc: {
+      primary: "#3f3f46", // zinc-700
+      secondary: "#f4f4f5", // zinc-100
+      accent: "#3f3f46",
+    },
+    fuchsia: {
+      primary: "#c026d3", // fuchsia-600
+      secondary: "#fdf4ff", // fuchsia-50
+      accent: "#c026d3",
+    },
+    violet: {
+      primary: "#7c3aed", // violet-600
+      secondary: "#f5f3ff", // violet-50
       accent: "#7c3aed",
     },
+    yellow: {
+      primary: "#facc15", // yellow-400
+      secondary: "#fefce8", // yellow-50
+      accent: "#facc15",
+    },
+    red: {
+      primary: "#dc2626", // red-600
+      secondary: "#fef2f2", // red-50
+      accent: "#dc2626",
+    }
   };
 
   const styles = themeStyles[theme];

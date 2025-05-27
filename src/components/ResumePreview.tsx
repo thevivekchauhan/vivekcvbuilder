@@ -1,4 +1,3 @@
-
 import { ResumeData, ColorTheme } from "./ResumeBuilder";
 import { Badge } from "@/components/ui/badge";
 
@@ -32,6 +31,90 @@ const themeStyles = {
     accent: "text-purple-600",
     border: "border-purple-200",
   },
+  sunset: {
+    primary: "bg-orange-500 text-white",
+    secondary: "bg-orange-50 text-orange-900",
+    accent: "text-orange-500",
+    border: "border-orange-200",
+  },
+  rose: {
+    primary: "bg-rose-600 text-white",
+    secondary: "bg-rose-50 text-rose-900",
+    accent: "text-rose-600",
+    border: "border-rose-200",
+  },
+  sky: {
+    primary: "bg-sky-500 text-white",
+    secondary: "bg-sky-50 text-sky-900",
+    accent: "text-sky-500",
+    border: "border-sky-200",
+  },
+  teal: {
+    primary: "bg-teal-600 text-white",
+    secondary: "bg-teal-50 text-teal-900",
+    accent: "text-teal-600",
+    border: "border-teal-200",
+  },
+  amber: {
+    primary: "bg-amber-500 text-white",
+    secondary: "bg-amber-50 text-amber-900",
+    accent: "text-amber-500",
+    border: "border-amber-200",
+  },
+  cyan: {
+    primary: "bg-cyan-600 text-white",
+    secondary: "bg-cyan-50 text-cyan-900",
+    accent: "text-cyan-600",
+    border: "border-cyan-200",
+  },
+  pink: {
+    primary: "bg-pink-600 text-white",
+    secondary: "bg-pink-50 text-pink-900",
+    accent: "text-pink-600",
+    border: "border-pink-200",
+  },
+  indigo: {
+    primary: "bg-indigo-600 text-white",
+    secondary: "bg-indigo-50 text-indigo-900",
+    accent: "text-indigo-600",
+    border: "border-indigo-200",
+  },
+  stone: {
+    primary: "bg-stone-600 text-white",
+    secondary: "bg-stone-50 text-stone-900",
+    accent: "text-stone-600",
+    border: "border-stone-200",
+  },
+  zinc: {
+    primary: "bg-zinc-700 text-white",
+    secondary: "bg-zinc-100 text-zinc-900",
+    accent: "text-zinc-700",
+    border: "border-zinc-200",
+  },
+  fuchsia: {
+    primary: "bg-fuchsia-600 text-white",
+    secondary: "bg-fuchsia-50 text-fuchsia-900",
+    accent: "text-fuchsia-600",
+    border: "border-fuchsia-200",
+  },
+  violet: {
+    primary: "bg-violet-600 text-white",
+    secondary: "bg-violet-50 text-violet-900",
+    accent: "text-violet-600",
+    border: "border-violet-200",
+  },
+  yellow: {
+    primary: "bg-yellow-400 text-black",
+    secondary: "bg-yellow-50 text-yellow-900",
+    accent: "text-yellow-500",
+    border: "border-yellow-200",
+  },
+  red: {
+    primary: "bg-red-600 text-white",
+    secondary: "bg-red-50 text-red-900",
+    accent: "text-red-600",
+    border: "border-red-200",
+  }
 };
 
 export const ResumePreview = ({ resumeData, theme }: ResumePreviewProps) => {
