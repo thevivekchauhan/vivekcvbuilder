@@ -1,10 +1,9 @@
-
 import { useState } from "react";
 import { ResumeForm } from "./ResumeForm";
 import { ResumePreview } from "./ResumePreview";
 import { ThemeSelector } from "./ThemeSelector";
 import { Button } from "@/components/ui/button";
-import { Download, Eye } from "lucide-react";
+import { Download, Eye, Loader2 } from "lucide-react";
 import { generatePDF } from "@/utils/pdfGenerator";
 
 export interface ResumeData {
@@ -40,12 +39,12 @@ export const ResumeBuilder = () => {
       fullName: "Vivek Chauhan",
       title: "Software Developer",
       email: "thevivek@gmail.com",
-      phone: "+1 (555) 123-4567",
-      location: "New York, NY",
+      phone: "+91 9876543210",
+      location: "Ahmedabad, Gujarat, India",
     },
     summary:
       "Passionate software developer with 5+ years of experience in building scalable web applications. Skilled in React, TypeScript, and modern web technologies.",
-    skills: ["JavaScript", "React", "TypeScript", "Node.js", "Python", "SQL"],
+    skills: ["Problem Solving", "Time Management"],
     education: [
       {
         degree: "Bachelor of Computer Science",
@@ -63,21 +62,22 @@ export const ResumeBuilder = () => {
         description:
           "Lead development of customer-facing web applications serving 10K+ users. Implemented CI/CD pipelines and mentored junior developers.",
       },
-      {
-        position: "Frontend Developer",
-        company: "Digital Agency",
-        duration: "2019 - 2021",
-        description:
-          "Developed responsive websites and web applications using React and modern JavaScript frameworks.",
-      },
     ],
   });
 
   const [currentTheme, setCurrentTheme] = useState<ColorTheme>("navy");
   const [showMobilePreview, setShowMobilePreview] = useState(false);
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
 
-  const handleDownloadPDF = (includePhoto: boolean = true) => {
-    generatePDF(resumeData, currentTheme, includePhoto);
+  const handleDownloadPDF = async (includePhoto: boolean = true) => {
+    try {
+      setIsGeneratingPDF(true);
+      await generatePDF(resumeData, currentTheme, includePhoto);
+    } catch (error) {
+      console.error('Error downloading PDF:', error);
+    } finally {
+      setIsGeneratingPDF(false);
+    }
   };
 
   return (
@@ -103,9 +103,17 @@ export const ResumeBuilder = () => {
           <Eye className="w-4 h-4 mr-2" />
           {showMobilePreview ? "Edit" : "Preview"}
         </Button>
-        <Button onClick={() => handleDownloadPDF(true)} size="sm">
-          <Download className="w-4 h-4 mr-2" />
-          Download PDF
+        <Button 
+          onClick={() => handleDownloadPDF(true)} 
+          size="sm"
+          disabled={isGeneratingPDF}
+        >
+          {isGeneratingPDF ? (
+            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+          ) : (
+            <Download className="w-4 h-4 mr-2" />
+          )}
+          {isGeneratingPDF ? "Generating..." : "Download PDF"}
         </Button>
       </div>
 
@@ -128,9 +136,14 @@ export const ResumeBuilder = () => {
                   <Button
                     onClick={() => handleDownloadPDF(true)}
                     size="sm"
+                    disabled={isGeneratingPDF}
                   >
-                    <Download className="w-4 h-4 mr-2" />
-                    Download PDF
+                    {isGeneratingPDF ? (
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    ) : (
+                      <Download className="w-4 h-4 mr-2" />
+                    )}
+                    {isGeneratingPDF ? "Generating..." : "Download PDF"}
                   </Button>
                 </div>
               </div>
