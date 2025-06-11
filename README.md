@@ -1,6 +1,6 @@
 # Resume Sections Overview
 
-## 1. Personal Information  
+## 1. Personal Information.
 **Definition:** Your basic contact details and professional identity
 
 - **Full Name:** Your complete legal name as you want it to appear professionally  
