@@ -98,5 +98,5 @@ The resume builder organizes your information into 4 easy-to-navigate tabs:
 - **Education Tab:** Academic background with add/remove functionality  
 - **Experience Tab:** Work history with add/remove functionality  
 
----
+
 
