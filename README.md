@@ -100,4 +100,3 @@ The resume builder organizes your information into 4 easy-to-navigate tabs:
 
 ---
 
-*Feel free to customize this structure to best fit your project or personal repository.*
