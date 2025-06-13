@@ -1,4 +1,4 @@
-# Resume Sections Overview
+# Resume Sections Overview.
 
 ## 1. Personal Information
 **Definition:** Your basic contact details and professional identity
